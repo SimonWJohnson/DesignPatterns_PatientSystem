@@ -139,9 +139,12 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="AndromedaAlertLevelStrategy.cpp" />
     <ClCompile Include="CompositePatientDatabaseLoader.cpp" />
+    <ClCompile Include="CordycepsBrainInfectionAlertLevelStrategy.cpp" />
     <ClCompile Include="GPNotificationSystemFacade.cpp" />
     <ClCompile Include="HospitalAlertSystemFacade.cpp" />
+    <ClCompile Include="KepralsSyndromeAlertLevelStrategy.cpp" />
     <ClCompile Include="Patient.cpp" />
     <ClCompile Include="PatientDatabaseLoader.cpp" />
     <ClCompile Include="PatientFileLoader.cpp" />
@@ -153,9 +156,13 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AbstractPatientDatabaseLoader.h" />
+    <ClInclude Include="AlertLevelStrategy.h" />
+    <ClInclude Include="AndromedaStrainALertLevelStrategy.h" />
     <ClInclude Include="CompositePatientDatabaseLoader.h" />
+    <ClInclude Include="CordycepsBrainInfectionAlertLevelStrategy.h" />
     <ClInclude Include="GPNotificationSystemFacade.h" />
     <ClInclude Include="HospitalAlertSystemFacade.h" />
+    <ClInclude Include="KepralsSyndromeAlertLevelStrategy.h" />
     <ClInclude Include="PatientAlertLevels.h" />
     <ClInclude Include="Patient.h" />
     <ClInclude Include="PatientDatabaseLoader.h" />
