@@ -10,12 +10,19 @@
 
 #include "GPNotificationSystemFacade.h"
 #include "HospitalAlertSystemFacade.h"
+// add the Adapter as per FR1
+#include "PatientFileLoaderAdapter.h"
 
 using namespace std;
 
 
 PatientManagementSystem::PatientManagementSystem() :
-	_patientDatabaseLoader(std::make_unique<PatientDatabaseLoader>()),
+	//_patientDatabaseLoader(std::make_unique<PatientDatabaseLoader>()),
+	// FR1 Adapter Pattern
+	// Use the PatientFileLoaderAdapter so Patient data is loaded from a text file through
+	// the AbstractPatientDatabaseLoader interface.
+	// Switching loaders requires changing only this line
+	_patientDatabaseLoader(std::make_unique<PatientFileLoaderAdapter>()),
 	_hospitalAlertSystem(std::make_unique<HospitalAlertSystemFacade>()),
 	_gpNotificationSystem(std::make_unique<GPNotificationSystemFacade>())
 {
