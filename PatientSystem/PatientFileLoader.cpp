@@ -32,6 +32,7 @@ std::vector<Patient*> PatientFileLoader::loadPatientFile(const std::string& file
             continue;
         }
 
+        /* Patient Details */
         // Take each component of the patient record
         string uid;
         string name;
@@ -69,12 +70,51 @@ std::vector<Patient*> PatientFileLoader::loadPatientFile(const std::string& file
         Patient* patient = new Patient(firstName, lastName, birthdayTm);
         patient->addDiagnosis(diagnosis);
 
+        /* Vitals Details */
         // Historical vitals are loaded here
         // Alert levels should not be calculated for historical data***
 
+        if (!vitalsRecords.empty()){
+            string vitalRecord;
+            stringstream vitalsStream(vitalsRecords);
+
+            while (getline(vitalsStream, vitalRecord, ';')) {
+                if (vitalRecord.empty()) {
+                    continue;
+                }
+
+                // Take each component of the vitals record
+                string bodyTemperature;
+                string bloodPressure;
+                string heartRate;
+                string respiritoryRate;
+
+                stringstream vitalStream(vitalRecord);
+
+                // Getters for each string
+                // Split / separate at the comma ','
+                getline(vitalStream, bodyTemperature, ',');
+                getline(vitalStream, bloodPressure, ',');
+                getline(vitalStream, heartRate, ',');
+                getline(vitalStream, respiritoryRate, ',');
+                
+                // Instantiate Vitals object
+                // Use a pointer
+                // Convert string values into the numeric types required by the Vitals constructor
+                Vitals* vitals = new Vitals(
+                    stof(bodyTemperature),
+                    stoi(bloodPressure),
+                    stoi(heartRate),
+                    stoi(respiritoryRate)
+                );
+
+                patient->addVitals(vitals);
+            }
+        }
+
+        patients.push_back(patient);
 
     }
-
 
     return patients;
 }
