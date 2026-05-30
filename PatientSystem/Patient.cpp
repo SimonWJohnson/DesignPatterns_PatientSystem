@@ -5,6 +5,10 @@
 #include <sstream>
 
 #include "Vitals.h"
+#include "AlertLevelStrategy.h"
+#include "CordycepsBrainInfectionAlertLevelStrategy.h"
+#include "KepralsSyndromeAlertLevelStrategy.h"
+#include "AndromedaStrainAlertLevelStrategy.h"
 
 
 using namespace std;
