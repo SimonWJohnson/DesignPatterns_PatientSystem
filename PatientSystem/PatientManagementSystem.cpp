@@ -22,7 +22,7 @@ PatientManagementSystem::PatientManagementSystem() :
 	// Use the PatientFileLoaderAdapter so Patient data is loaded from a text file through
 	// the AbstractPatientDatabaseLoader interface.
 	// Switching loaders requires changing only this line
-	_patientDatabaseLoader(std::make_unique<PatientFileLoaderAdapter>()),
+	_patientDatabaseLoader(std::make_unique<PatientFileLoaderAdapter>("patients.txt")),
 	_hospitalAlertSystem(std::make_unique<HospitalAlertSystemFacade>()),
 	_gpNotificationSystem(std::make_unique<GPNotificationSystemFacade>())
 {
