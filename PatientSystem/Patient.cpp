@@ -70,10 +70,52 @@ const std::string& Patient::primaryDiagnosis() const
 	return _diagnosis.front();
 }
 
+// Anonymous helper function to facilitate Alert Strategies
+// This helper function acts as a simple factory that encapsulates the logic
+// required to select the correct algorithm at runtime
+namespace 
+{
+	// Create and return the appropriate Strategy object
+	// Each disease has its own alert level calculation algorithm
+	std::unique_ptr<AlertLevelStrategy> createAlertLevelStrategy(
+		const std::string& diagnosis
+	)
+	{
+		if (diagnosis == Diagnosis::CORDYCEPS_BRAIN_INFECTION) 
+		{
+			return std::make_unique<CordycepsBrainInfectionAlertLevelStrategy>();
+		}
+		if (diagnosis == Diagnosis::KEPRALS_SYNDROME) 
+		{
+			return std::make_unique<KepralsSyndromeAlertLevelStrategy>();
+		}
+		if (diagnosis == Diagnosis::ANDROMEDA_STRAIN) 
+		{
+			return std::make_unique<AndromedaStrainAlertLevelStrategy>();
+		}
+
+		// Else
+		// No matching strategy exists for this diagnosis
+		// // No calculation should be performed
+		return nullptr;
+	}
+}
+
 void Patient::addVitals(const Vitals* v)
 {
+	// Store the newly recorded vitals
 	_vitals.push_back(v);
 	// TODO: calculate alert levels
+	// FR3 - Strategy Pattern
+	// Select the correct alert calculation algorithm based on
+	// the Patient's primary diagnosis
+	std::unique_ptr<AlertLevelStrategy> strategy = createAlertLevelStrategy(primaryDiagnosis());
+
+	if (strategy != nullptr) 
+	{
+		AlertLevel level = strategy->calculateAlertLevel(*this, *v);
+		setAlertLevel(level);
+	}
 }
 
 const std::vector<const Vitals*> Patient::vitals() const
