@@ -139,7 +139,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="AndromedaAlertLevelStrategy.cpp" />
+    <ClCompile Include="AndromedaStrainAlertLevelStrategy.cpp" />
     <ClCompile Include="CompositePatientDatabaseLoader.cpp" />
     <ClCompile Include="CordycepsBrainInfectionAlertLevelStrategy.cpp" />
     <ClCompile Include="GPNotificationSystemFacade.cpp" />
@@ -157,7 +157,7 @@
   <ItemGroup>
     <ClInclude Include="AbstractPatientDatabaseLoader.h" />
     <ClInclude Include="AlertLevelStrategy.h" />
-    <ClInclude Include="AndromedaStrainALertLevelStrategy.h" />
+    <ClInclude Include="AndromedaStrainAlertLevelStrategy.h" />
     <ClInclude Include="CompositePatientDatabaseLoader.h" />
     <ClInclude Include="CordycepsBrainInfectionAlertLevelStrategy.h" />
     <ClInclude Include="GPNotificationSystemFacade.h" />

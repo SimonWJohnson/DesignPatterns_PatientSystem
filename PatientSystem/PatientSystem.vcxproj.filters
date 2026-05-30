@@ -48,7 +48,7 @@
     <ClCompile Include="CompositePatientDatabaseLoader.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="AndromedaAlertLevelStrategy.cpp">
+    <ClCompile Include="AndromedaStrainAlertLevelStrategy.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="KepralsSyndromeAlertLevelStrategy.cpp">
@@ -104,7 +104,7 @@
     <ClInclude Include="KepralsSyndromeAlertLevelStrategy.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="AndromedaStrainALertLevelStrategy.h">
+    <ClInclude Include="AndromedaStrainAlertLevelStrategy.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
