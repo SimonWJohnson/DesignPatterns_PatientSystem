@@ -27,13 +27,54 @@ std::vector<Patient*> PatientFileLoader::loadPatientFile(const std::string& file
     // TODO: load your file here
     string line;
     
+    while (getline(inFile, line)){
+        if (line.empty()) {
+            continue;
+        }
 
-    // Split the name field - LastName, FirstName
+        // Take each component of the patient record
+        string uid;
+        string name;
+        string birthday;
+        string diagnosis;
+        string vitalsRecords;
 
-    // Convert birthday string into tm structure
+        stringstream lineStream(line);
 
-    // Historical vitals are loaded here
-    // Alert levels should not be calculated for historical data***
+        // Getters for each string
+        // Split / separate at the pipe '|'
+        getline(lineStream, uid, '|');
+        getline(lineStream, name, '|');
+        getline(lineStream, birthday, '|');
+        getline(lineStream, diagnosis, '|');
+        getline(lineStream, vitalsRecords, '|');
+
+        // Split the name field - LastName, FirstName
+        string lastName;
+        string firstName;
+
+        // Getters for each string
+        // Split / separate at the comma ','
+        stringstream nameStream(name);
+        getline(nameStream, lastName, ',');
+        getline(nameStream, firstName, ',');
+
+        // Convert birthday string into tm structure
+        tm birthdayTm{};
+        stringstream birthdayStream(birthday);
+        birthdayStream >> get_time(&birthdayTm, "%d-%m-%Y");
+
+        // Instantiate Patient object
+        // Use a pointer
+        Patient* patient = new Patient(firstName, lastName, birthdayTm);
+        patient->addDiagnosis(diagnosis);
+
+        // Historical vitals are loaded here
+        // Alert levels should not be calculated for historical data***
+
+
+    }
+
 
     return patients;
 }
