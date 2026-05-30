@@ -26,7 +26,8 @@ void PatientDatabaseLoader::loadPatients(std::vector<Patient*>& patientIn){
     p->addDiagnosis(Diagnosis::CORDYCEPS_BRAIN_INFECTION);
 
     Vitals* v = new Vitals(37.5f, 80, 60, 16);
-    p->addVitals(v);
+    // Added bool parameter to avoid vitals miscalculation
+    p->addVitals(v, false);
 
     patientIn.push_back(p);
 

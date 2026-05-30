@@ -101,11 +101,21 @@ namespace
 	}
 }
 
-void Patient::addVitals(const Vitals* v)
+// Bool parameter 'calculateAlertLevel' passed in to avoid miscalculation
+void Patient::addVitals(const Vitals* v, bool calculateAlertLevel)
 {
 	// Store the newly recorded vitals
 	_vitals.push_back(v);
 	// TODO: calculate alert levels
+	// 
+	// Historical vitals loaded from the database or file should
+	// not trigger alert level calculation.
+	// Only newly recorded vitals should calculate and update the Patient's alert level
+	if (!calculateAlertLevel) 
+	{
+		return;
+	}
+	// 
 	// FR3 - Strategy Pattern
 	// Select the correct alert calculation algorithm based on
 	// the Patient's primary diagnosis

@@ -111,7 +111,8 @@ std::vector<Patient*> PatientFileLoader::loadPatientFile(const std::string& file
                     stoi(respiritoryRate)
                 );
 
-                patient->addVitals(vitals);
+                // Added bool parameter to avoid vitals miscalculation
+                patient->addVitals(vitals, false);
             }
         }
 
