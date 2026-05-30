@@ -67,6 +67,9 @@ std::vector<Patient*> PatientFileLoader::loadPatientFile(const std::string& file
 
         // Instantiate Patient object
         // Use a pointer
+        // The Patient class includes a uid field, but currently does not store
+        // Patient IDs directly. The uid isread so the remaining fields can be 
+        // parsed in the correct order
         Patient* patient = new Patient(firstName, lastName, birthdayTm);
         patient->addDiagnosis(diagnosis);
 
