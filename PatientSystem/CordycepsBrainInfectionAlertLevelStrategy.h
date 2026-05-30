@@ -4,7 +4,7 @@
 
 // Strategy for Cordyceps Brain Infection
 // Alert level is based on respiratory rate
-class CordycepsBrainInfectionAlertLevelStategy : public AlertLevelStrategy {
+class CordycepsBrainInfectionAlertLevelStrategy : public AlertLevelStrategy {
 public:
 	AlertLevel calculateAlertLevel(
 		const Patient& patient,
