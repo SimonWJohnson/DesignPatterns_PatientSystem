@@ -177,6 +177,9 @@
     <ClInclude Include="Person.h" />
     <ClInclude Include="Vitals.h" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="C:\Users\User\Desktop\__Uni\BachelorInformationTechnology\2026\Design Patterns\_Assignment02\DesignDocument_DRAFT.docx" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
