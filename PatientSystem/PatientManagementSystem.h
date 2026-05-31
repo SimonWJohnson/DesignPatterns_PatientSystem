@@ -47,7 +47,7 @@ protected:
 	// FR4
 	// Observer instances used to receive Patient alert notifications
 	HospitalNotificationObserver _hospitalAlertObserver;
-	HospitalNotificationObserver _gpNotificationObserver;
+	GPNotificationObserver _gpNotificationObserver;
 
 };
 
