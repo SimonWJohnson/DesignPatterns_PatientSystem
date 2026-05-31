@@ -95,6 +95,11 @@ void PatientManagementSystem::init()
 
 	for (Patient* p : _patients) {
 		// TODO: do any processing you need here
+		// FR4
+		// Register Hospital and GP observers with each Patient
+		// Observers notified automatically by Patient::setAlertLevel()
+		p->addAlertObserver(&_hospitalAlertObserver);
+		p->addAlertObserver(&_gpNotificationObserver);
 	}
 }
 
