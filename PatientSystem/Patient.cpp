@@ -153,6 +153,14 @@ void Patient::setAlertLevel(AlertLevel level)
 		}
 		cout << endl;
 	}
+
+	// FR4 - Observer Pattern
+	// Notify all registered Observers when the Patient
+	// reaches a Red alert level
+	if (_alertLevel == AlertLevel::Red) 
+	{
+		notifyAlertObservers();
+	}
 }
 
 // FR4 - Observer Pattern
