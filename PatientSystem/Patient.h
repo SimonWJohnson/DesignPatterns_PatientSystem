@@ -9,6 +9,9 @@
 
 // forward declare classes
 class Vitals;
+// FR4
+// Observer interface used to receive Patient alert notifications
+class PatientAlertObserver;
 
 class Diagnosis {
 public:
@@ -49,11 +52,21 @@ public:
 	void setAlertLevel(AlertLevel level);
 	const AlertLevel alertLevel() const { return _alertLevel; }
 
+	// FR4 - Observer Pattern
+	// Register an observer to receive notifications when Patient alert levels reach critical level
+	void addAlertObserver(PatientAlertObserver* observer);
+	// Notify registered Observers that a Patient's alert level has changed
+	void notifyAlertObservers();
+
 protected:
 	std::vector<std::string> _diagnosis;
 	std::vector<const Vitals*> _vitals;
 	AlertLevel _alertLevel;
 
 	friend std::ostream& operator<<(std::ostream& os, const Patient& p);
+
+	// FR4
+	// Stores all Observers registered to receive Patient alert notifications
+	std::vector<PatientAlertObserver*> _alertObservers;
 };
 
