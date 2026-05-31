@@ -126,4 +126,7 @@
   <ItemGroup>
     <None Include="C:\Users\User\Desktop\__Uni\BachelorInformationTechnology\2026\Design Patterns\_Assignment02\DesignDocument_DRAFT.docx" />
   </ItemGroup>
+  <ItemGroup>
+    <Text Include="patients.txt" />
+  </ItemGroup>
 </Project>
