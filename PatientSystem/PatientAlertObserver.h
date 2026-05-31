@@ -14,5 +14,5 @@ public:
 
 	// Send Alert / Notification
 	// Override in implementation
-	virtual void update(const Patient& patient) = 0;
+	virtual void update(Patient* patient) = 0;
 };

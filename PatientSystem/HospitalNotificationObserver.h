@@ -9,7 +9,7 @@
 
 class HospitalNotificationObserver : public PatientAlertObserver {
 public:
-	void update(const Patient& patient) override;
+	void update(Patient* patient) override;
 
 private:
 	HospitalAlertSystemFacade _hospitalAlertSystem;
