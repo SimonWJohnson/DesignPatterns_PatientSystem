@@ -4,7 +4,7 @@
 #include "HospitalAlertSystemFacade.h"
 
 // FR4 = Observer Pattern
-// Observer that notifies the hospital alert system when 
+// Observer that notifies the Hospital Notification system when 
 // a Patient reaches a concerning alert level
 
 class HospitalNotificationObserver : public PatientAlertObserver {
