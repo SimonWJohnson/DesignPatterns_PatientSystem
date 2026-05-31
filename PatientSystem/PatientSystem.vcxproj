@@ -165,6 +165,7 @@
     <ClInclude Include="KepralsSyndromeAlertLevelStrategy.h" />
     <ClInclude Include="PatientAlertLevels.h" />
     <ClInclude Include="Patient.h" />
+    <ClInclude Include="PatientAlertObserver.h" />
     <ClInclude Include="PatientDatabaseLoader.h" />
     <ClInclude Include="PatientFileLoader.h" />
     <ClInclude Include="PatientFileLoaderAdapter.h" />
