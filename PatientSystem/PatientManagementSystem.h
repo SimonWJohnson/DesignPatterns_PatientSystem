@@ -5,6 +5,10 @@
 #include <string>
 #include <vector>
 
+// FR4
+#include "HospitalNotificationObserver.h"
+#include "GPNotificationObserver.h"
+
 
 // forward declare several classes
 class AbstractPatientDatabaseLoader;
@@ -39,6 +43,11 @@ protected:
 	std::unique_ptr<GPNotificationSystemFacade> _gpNotificationSystem;
 
 	std::unique_ptr<AbstractPatientDatabaseLoader> _patientDatabaseLoader;
+
+	// FR4
+	// Observer instances used to receive Patient alert notifications
+	HospitalNotificationObserver _hospitalAlertObserver;
+	HospitalNotificationObserver _gpNotificationObserver;
 
 };
 
