@@ -9,6 +9,7 @@
 #include "CordycepsBrainInfectionAlertLevelStrategy.h"
 #include "KepralsSyndromeAlertLevelStrategy.h"
 #include "AndromedaStrainAlertLevelStrategy.h"
+#include "PatientAlertObserver.h"
 
 
 using namespace std;
@@ -151,5 +152,22 @@ void Patient::setAlertLevel(AlertLevel level)
 			break;
 		}
 		cout << endl;
+	}
+}
+
+// FR4 - Observer Pattern
+// Add an Observer to the collection of registered Observers
+void Patient::addAlertObserver(PatientAlertObserver* observer) 
+{
+	_alertObservers.push_back(observer);
+}
+
+// Iterate through all registered Observers and notify them of
+// the Patient's current alert status
+void Patient::notifyAlertObservers() 
+{
+	for (PatientAlertObserver* observer : _alertObservers) 
+	{
+		observer->update(this);
 	}
 }
