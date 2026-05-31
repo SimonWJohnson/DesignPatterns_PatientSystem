@@ -2,7 +2,7 @@
 #include "AlertLevelStrategy.h"
 
 // Strategy for Andromeda Strain
-// ALert level is based on blood pressure
+// Alert level is based on blood pressure
 class AndromedaStrainAlertLevelStrategy : public AlertLevelStrategy {
 public:
 	AlertLevel calculateAlertLevel(

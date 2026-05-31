@@ -1,5 +1,4 @@
 #pragma once
-
 #include "AlertLevelStrategy.h"
 
 // Strategy for Cordyceps Brain Infection
